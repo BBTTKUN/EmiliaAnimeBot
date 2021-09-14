@@ -54,16 +54,16 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-`Hey There!` [👩‍💼](https://telegra.ph/file/c766d686089a43e0ff33a.jpg) 
-`My name is` *Emilia*`
-`I am an Anime Themed group management bot.`
+`Hey There!` [👩‍💼]() 
+`My name is` *Mitsuo*`
+`I am an Anime Themed group management bot Use Mitsuo Bot.`
 You can find my list of available commands with` *🔐Commands*   
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ADD EMILIA TO YOUR GROUP ➕️",url="t.me/EmiliaAnimeRoBot?startgroup=true"
+            text="➕️ ADD MITSUO TO YOUR GROUP ➕️",url="t.me/SuwoMitsuoRobot?startgroup=true"
         ),
     ],
     [
@@ -73,17 +73,17 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-          text="📮 Updates", url="https://t.me/TangentXOfficial"
+          text="📮 Updates", url="https://t.me/PigasusUpdates"
         ),
       
         InlineKeyboardButton(
-          text="📑 Logs", url="https://t.me/tangentlogger"
+          text="📑 Logs", url="https://t.me/PigasusLogs"
         ),
     ],
          
     [
        InlineKeyboardButton(
-           text="🐱 Support", url="https://t.me/TangentChats"
+           text="🐱 Support", url="https://t.me/PigasusSupport"
          ),
     ],
     [
@@ -96,7 +96,7 @@ buttons = [
 
 
 HELP_STRINGS = """
-`Hey there! My name is` [Emilia!](https://telegra.ph/file/e5fc94ada18369f89c832.jpg) 
+`Hey there! My name is` [Mitsuo!](https://telegra.ph/file/67bed30d6fc01f53bd76b.jpg)
 I'm a Half Elf and help admins manage their groups with Some Powerful Features! \n`Have a look at the following for an idea of some of the things I can help you with.`"""
 
 DONATE_STRING = """
@@ -213,14 +213,14 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            EMILIA_IMG, caption= "<code>Emilia is Here For You❤\nI am Awake Since</code>: <code>{}</code>".format(
+            EMILIA_IMG, caption= "<code>Mitsuo is Here For You❤\nI am Awake Since</code>: <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url="https://telegram.dog/TangentChats")
+                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url= "https://t.me/PigasusSupport")
                   ],
                   [
                   InlineKeyboardButton(text="Sᴏᴜʀᴄᴇ", url="https://github.com/IzumiCypherX/EmiliaAnimeBot")
@@ -390,7 +390,7 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..👩‍💼 I'm *Emilia*
+            text=""" Hi..👩‍💼 I'm *Mitsuo*
                  \nMy Source Code Can be Found at Github at this [Link](https://github.com/IzumiCypherX/EmiliaAnimeBot""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -465,7 +465,7 @@ def get_help(update: Update, context: CallbackContext):
             InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Back", callback_data="help_back"),
                                 InlineKeyboardButton(
-                                    text="Support", url="https://telegram.dog/TangentChats"
+                                    text="Support", url="https://t.me/PigasusSupport"
                                 )]]
             ),
         )
@@ -641,7 +641,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1610284626 and DONATION_LINK:
+        if OWNER_ID != 1881109870 and DONATION_LINK:
             update.effective_message.reply_text(
                 "You can also donate to the person currently running me "
                 "[here]({})".format(DONATION_LINK),
