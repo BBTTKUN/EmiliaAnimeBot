@@ -5,13 +5,13 @@ import re
 from sys import argv
 from typing import Optional
 
-from EmiliaAnimeBot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
+from KiteretsuZRobot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
                           OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
                           dispatcher, StartTime, telethn, updater, pgram)
 
-from EmiliaAnimeBot.modules import ALL_MODULES
-from EmiliaAnimeBot.modules.helper_funcs.chat_status import is_user_admin
-from EmiliaAnimeBot.modules.helper_funcs.misc import paginate_modules
+from KiteretsuZRobot.modules import ALL_MODULES
+from KiteretsuZRobot.modules.helper_funcs.chat_status import is_user_admin
+from KiteretsuZRobot.modules.helper_funcs.misc import paginate_modules
 from telegram import (InlineKeyboardButton, InlineKeyboardMarkup, ParseMode,
                       Update)
 from telegram.error import (BadRequest, ChatMigrated, NetworkError,
@@ -21,7 +21,7 @@ from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
 
-EMILIA_IMG = "https://telegra.ph/file/b37cec509d121c8c63518.jpg"
+KITERETSU_IMG = "https://telegra.ph/file/b37cec509d121c8c63518.jpg"
 
 
 def get_readable_time(seconds: int) -> str:
@@ -55,48 +55,60 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 `Hey There!` [👩‍💼]() 
-`My name is` *Mitsuo*`
-`I am an Anime Themed group management bot Use Mitsuo Bot.`
-You can find my list of available commands with` *🔐Commands*   
+`My name is` *Kiteretsu*`
+`I am an Anime Themed group management bot Use Kiteretsu Bot.`
+Im A Power Of Your Group The Z Use Me The Kiteretsu Z Robot .`
+Add Me n our Group  To Add *➕️ ADD KITERETSU TO YOUR GROUP ➕️* ,
+Join You can find my list of available commands with` *💓Commands💓*   
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ ADD MITSUO TO YOUR GROUP ➕️",url="t.me/SuwoMitsuoRobot?startgroup=true"
+            text="➕️ ADD KITERETSU TO YOUR GROUP ➕️",url="t.me/KiteretsuZRobot?startgroup=true"
         ),
     ],
     [
         InlineKeyboardButton(
-          text="🔐 Commands", callback_data="help_back"
+          text="💓Commands💓", callback_data="help_back"
         ),
     ],
     [
         InlineKeyboardButton(
-          text="📮 Updates", url="https://t.me/PigasusUpdates"
+          text="📮 Z Updates 📮", url="https://t.me/ZetBotsUpdates"
         ),
       
         InlineKeyboardButton(
-          text="📑 Logs", url="https://t.me/PigasusLogs"
+          text="📑 Logs", url="https://t.me/ZetBotsLogs"
         ),
     ],
          
     [
        InlineKeyboardButton(
-           text="🐱 Support", url="https://t.me/PigasusSupport"
+           text="😁 Support", url="https://t.me/ZetBotsSupports"
          ),
     ],
     [
-        InlineKeyboardButton(
-          text="✒ Source", callback_data="source_"
+       InlineKeyboardButton(
+          text=",😊 Source", callback_data="source_"
         ),
      
     ],
+    [ 
+       InlineKeyboardButton(
+          text="💓Support YT", url="https://youtube.com/channel/UC9p6aECiudSXv9DwoWhs9lA"
+        ),
+     
+    ],
+    [   
+       InlineKeyboardButton(
+           text="Check My Z Friend🔥💝", url="https://t.me/LuiShirosagiZRobot"
+         
+    ],
 ]
 
-
 HELP_STRINGS = """
-`Hey there! My name is` [Mitsuo!](https://telegra.ph/file/67bed30d6fc01f53bd76b.jpg)
+`Hey there! My name is` [Kiteretsu!](https://telegra.ph/file/67bed30d6fc01f53bd76b.jpg)
 I'm a Half Elf and help admins manage their groups with Some Powerful Features! \n`Have a look at the following for an idea of some of the things I can help you with.`"""
 
 DONATE_STRING = """
@@ -116,7 +128,7 @@ CHAT_SETTINGS = {}
 USER_SETTINGS = {}
 
 for module_name in ALL_MODULES:
-    imported_module = importlib.import_module("EmiliaAnimeBot.modules." + module_name)
+    imported_module = importlib.import_module("KiteretsuZRobot.modules." + module_name)
     if not hasattr(imported_module, "__mod_name__"):
         imported_module.__mod_name__ = imported_module.__name__
 
@@ -213,17 +225,17 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            EMILIA_IMG, caption= "<code>Mitsuo is Here For You❤\nI am Awake Since</code>: <code>{}</code>".format(
+            EMILIA_IMG, caption= "<code>Kiteretsu is Here For You❤\nI am Awake Since</code>: <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url= "https://t.me/PigasusSupport")
+                  InlineKeyboardButton(text="Sᴜᴘᴘᴏʀᴛ", url= "https://t.me/ZetBotsSuppports")
                   ],
                   [
-                  InlineKeyboardButton(text="Sᴏᴜʀᴄᴇ", url="https://github.com/IzumiCypherX/EmiliaAnimeBot")
+                  InlineKeyboardButton(text="Sᴏᴜʀᴄᴇ", url="https://github.com/BBTTKUN/EmiliaAnimeBot")
                   ]
                 ]
             ),
@@ -357,7 +369,7 @@ def gabi_about_callback(update, context):
     query = update.callback_query
     if query.data == "gabi_":
         query.message.edit_text(
-            text=""" ℹ️ I'm *Emilia*, a powerful group management bot built to help you manage your group easily.
+            text=""" ℹ️ I'm *Kiteretsu*, a powerful group management ZRobot built to help you manage your group easily.
                  \n❍ I can restrict users.
                  \n❍ I can greet users with customizable welcome messages and even set a group's rules.
                  \n❍ I have an advanced anti-flood system.
@@ -390,8 +402,8 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text=""" Hi..👩‍💼 I'm *Mitsuo*
-                 \nMy Source Code Can be Found at Github at this [Link](https://github.com/IzumiCypherX/EmiliaAnimeBot""",
+            text=""" Hi..👩‍💼 I'm *Kiteretsu*
+                 \nMy Source Code Can be Found at Github at this [Link](https://github.com/BBTTKUN/EmiliaAnimeBot""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -465,7 +477,7 @@ def get_help(update: Update, context: CallbackContext):
             InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Back", callback_data="help_back"),
                                 InlineKeyboardButton(
-                                    text="Support", url="https://t.me/PigasusSupport"
+                                    text="Support", url="https://t.me/ZetBotsSuppports"
                                 )]]
             ),
         )
@@ -691,7 +703,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Emilia is Back Online💼")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Kiteretsu is Back Online💼")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!"
@@ -750,5 +762,5 @@ def main():
 
 if __name__ == '__main__':
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
-    telethn.start(bot_token=TOKEN)
+    telethn.start(bot_token="2047545487:AAEH1xula2mAT3P2JI3jeXhoSHbgl8SKoAw")
     main()
