@@ -181,8 +181,8 @@ else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("emilia", API_ID, API_HASH)
-pgram = Client("EmiPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+telethn = TelegramClient("kiteretsu", API_ID, API_HASH)
+pgram = Client("kitPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 emiliaub = Client(SESSION_STRING, api_id=API_ID, api_hash=API_HASH)
 mongo_client = MongoClient(MONGO_DB_URI)
 db = mongo_client.EmiliaAnimeBot
@@ -197,7 +197,7 @@ TIGERS = list(TIGERS)
 
 
 # Load at end to ensure all prev variables have been set
-from EmiliaAnimeBot.modules.helper_funcs.handlers import (CustomCommandHandler,
+from KiteretsuZRobot.modules.helper_funcs.handlers import (CustomCommandHandler,
                                                         CustomMessageHandler,
                                                         CustomRegexHandler)
 
@@ -233,6 +233,6 @@ USERBOT_MENTION = izumi.mention
 end_credits = """
 INFO GATHERED!
 Client: Emilia Pyro
-Copyright: (c) 2021 EmiliaAnimeBot
+Copyright: (c) 2021 KiteretsuZRobot
 """
 print(end_credits)
